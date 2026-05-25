@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS Quiz</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #ff9a9e, #a18cd1, #fbc2eb);
+}
+
+.navbar {
+    background: linear-gradient(to right, #d63384, #6f42c1);
+    padding: 15px;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+.container {
+    width: 70%;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.question { margin-bottom:20px; }
+
+.timer { font-weight:bold; color:#d63384; margin-bottom:15px; }
+
+.progress { width:100%; background:#eee; height:20px; border-radius:10px; margin-bottom:5px; }
+
+.progress-bar {
+    height:100%;
+    width:0%;
+    background: linear-gradient(to right, #ff4ecd, #6f42c1);
+    border-radius:10px;
+    transition:0.4s;
+}
+
+#progressText { font-size:14px; margin-bottom:15px; color:#6f42c1; }
+
+button {
+    padding:10px 20px;
+    background:black;
+    border:none;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:15px;
+}
+
+#certificateBtn {
+    background: linear-gradient(to right, #d63384, #6f42c1);
+}
+
+#result { margin-top:20px; font-size:20px; font-weight:bold; color:#6f42c1; }
+
+.next-btn{
+    display:inline-block;
+    padding:10px 20px;
+    background:black;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">CSS Quiz</div>
+
+<div class="container">
+
+<div class="timer">
+Time Left: <span id="timeLeft"></span>
+</div>
+
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<div id="progressText">0 / 15 Answered</div>
+
+<form id="quizForm">
+
+<!-- CSS QUESTIONS -->
+<div class="question">
+1. What does CSS stand for?<br>
+<input type="radio" name="css1" value="1"> Cascading Style Sheets<br>
+<input type="radio" name="css1" value="0"> Computer Style Syntax<br>
+<input type="radio" name="css1" value="0"> Creative Styling System<br>
+</div>
+
+<div class="question">
+2. Which property is used to change text color?<br>
+<input type="radio" name="css2" value="1"> color<br>
+<input type="radio" name="css2" value="0"> text-color<br>
+<input type="radio" name="css2" value="0"> font-color<br>
+</div>
+
+<div class="question">
+3. Which property is used to change background color?<br>
+<input type="radio" name="css3" value="1"> background-color<br>
+<input type="radio" name="css3" value="0"> bg-color<br>
+<input type="radio" name="css3" value="0"> background-style<br>
+</div>
+
+<div class="question">
+4. How do you select an element with id "demo"?<br>
+<input type="radio" name="css4" value="1"> #demo<br>
+<input type="radio" name="css4" value="0"> .demo<br>
+<input type="radio" name="css4" value="0"> demo<br>
+</div>
+
+<div class="question">
+5. How do you select elements with class "box"?<br>
+<input type="radio" name="css5" value="1"> .box<br>
+<input type="radio" name="css5" value="0"> #box<br>
+<input type="radio" name="css5" value="0"> box<br>
+</div>
+
+<div class="question">
+6. Which property controls text size?<br>
+<input type="radio" name="css6" value="1"> font-size<br>
+<input type="radio" name="css6" value="0"> text-size<br>
+<input type="radio" name="css6" value="0"> size<br>
+</div>
+
+<div class="question">
+7. Which property is used to make text bold?<br>
+<input type="radio" name="css7" value="1"> font-weight<br>
+<input type="radio" name="css7" value="0"> text-bold<br>
+<input type="radio" name="css7" value="0"> weight<br>
+</div>
+
+<div class="question">
+8. Which property is used to add space inside an element?<br>
+<input type="radio" name="css8" value="1"> padding<br>
+<input type="radio" name="css8" value="0"> margin<br>
+<input type="radio" name="css8" value="0"> spacing<br>
+</div>
+
+<div class="question">
+9. Which property is used to add space outside an element?<br>
+<input type="radio" name="css9" value="1"> margin<br>
+<input type="radio" name="css9" value="0"> padding<br>
+<input type="radio" name="css9" value="0"> border<br>
+</div>
+
+<div class="question">
+10. Which property is used to center text?<br>
+<input type="radio" name="css10" value="1"> text-align<br>
+<input type="radio" name="css10" value="0"> align-text<br>
+<input type="radio" name="css10" value="0"> text-center<br>
+</div>
+
+<div class="question">
+11. Which property changes font type?<br>
+<input type="radio" name="css11" value="1"> font-family<br>
+<input type="radio" name="css11" value="0"> font-style<br>
+<input type="radio" name="css11" value="0"> text-font<br>
+</div>
+
+<div class="question">
+12. Which CSS property controls element visibility?<br>
+<input type="radio" name="css12" value="1"> display<br>
+<input type="radio" name="css12" value="0"> show<br>
+<input type="radio" name="css12" value="0"> visible<br>
+</div>
+
+<div class="question">
+13. Which property is used to create rounded corners?<br>
+<input type="radio" name="css13" value="1"> border-radius<br>
+<input type="radio" name="css13" value="0"> corner-radius<br>
+<input type="radio" name="css13" value="0"> radius<br>
+</div>
+
+<div class="question">
+14. Which property is used to add shadow to text?<br>
+<input type="radio" name="css14" value="1"> text-shadow<br>
+<input type="radio" name="css14" value="0"> font-shadow<br>
+<input type="radio" name="css14" value="0"> shadow-text<br>
+</div>
+
+<div class="question">
+15. Which CSS layout model is used for flexible layouts?<br>
+<input type="radio" name="css15" value="1"> Flexbox<br>
+<input type="radio" name="css15" value="0"> Float<br>
+<input type="radio" name="css15" value="0"> Table<br>
+</div>
+
+</form>
+
+<button id="submitBtn" onclick="submitQuiz()" disabled>Submit Quiz</button>
+
+<h2 id="result"></h2>
+<button id="certificateBtn" style="display:none;" onclick="generateCertificate()">Download Certificate</button>
+<button id="reattemptBtn" style="display:none;" onclick="location.reload()">Reattempt</button>
+<a href="bootstrap.html" class="next-btn">Next</a>
+
+</div>
+
+<script>
+let totalQuestions = 15;
+let timerMinutes = localStorage.getItem("quizTime") || 1;
+let time = timerMinutes * 60;
+
+let timerInterval = setInterval(function(){
+    time--;
+    let minutes = Math.floor(time/60);
+    let seconds = time%60;
+    document.getElementById("timeLeft").innerText =
+        minutes + ":" + (seconds<10?"0":"") + seconds;
+
+    if(time <= 0){
+        clearInterval(timerInterval);
+        submitQuiz();
+    }
+},1000);
+
+document.querySelectorAll('input[type="radio"]').forEach(function(radio){
+    radio.addEventListener("change", updateProgress);
+});
+
+function updateProgress(){
+    let answered = 0;
+    for(let i=1; i<=totalQuestions; i++){
+        if(document.querySelector('input[name="css'+i+'"]:checked')){
+            answered++;
+        }
+    }
+
+    let percent = (answered / totalQuestions) * 100;
+    document.getElementById("progressBar").style.width = percent + "%";
+    document.getElementById("progressText").innerText =
+        answered + " / 15 Answered";
+
+    if(answered === totalQuestions){
+        document.getElementById("submitBtn").disabled = false;
+    }
+}
+
+function submitQuiz() {
+    clearInterval(timerInterval);
+
+    let score = 0;
+    for(let i=1; i<=15; i++){
+        let answer = document.querySelector('input[name="css'+i+'"]:checked');
+        if(answer){ score += parseInt(answer.value); }
+    }
+
+    document.getElementById("result").innerText = "Your Score: " + score + " / 15";
+
+    if(score > 7){
+        document.getElementById("certificateBtn").style.display = "inline-block";
+    }
+    document.getElementById("reattemptBtn").style.display = "inline-block";
+
+    // Store attempt
+    let studentName = localStorage.getItem("studentName") || "Guest";
+    let subject = document.title;
+
+    let attempt = {
+        name: studentName,
+        subject: subject,
+        score: score + " / 15",
+        date: new Date().toLocaleString()
+    };
+
+    let attempts = JSON.parse(localStorage.getItem("quizAttempts")) || [];
+    attempts.push(attempt);
+    localStorage.setItem("quizAttempts", JSON.stringify(attempts));
+
+    // Update user attempts if logged in
+    let currentUser = localStorage.getItem("currentUser");
+    if(currentUser){
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        let userIndex = users.findIndex(u => u.username === currentUser);
+        if(userIndex !== -1){
+            users[userIndex].attempts = (users[userIndex].attempts || 0) + 1;
+            users[userIndex].score = score;
+            localStorage.setItem("users", JSON.stringify(users));
+        }
+    }
+
+    alert("Your Score: " + score);
+}
+
+function generateCertificate(){
+    let scoreText = document.getElementById("result").innerText;
+    let score = scoreText.split(": ")[1];
+    localStorage.setItem("quizScore", score);
+    window.location.href = "certificatecss.html";
+}
+</script>
+
+</body>
+</html>

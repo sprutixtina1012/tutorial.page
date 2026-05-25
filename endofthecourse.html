@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Certificate</title>
+
+<!-- PDF Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<!-- Confetti Library -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+    background:linear-gradient(135deg, pink, violet, purple);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+/* Reveal Animation */
+@keyframes reveal {
+    0%{ opacity:0; transform:scale(0.7); }
+    100%{ opacity:1; transform:scale(1); }
+}
+
+.certificate{
+    width:950px;
+    height:600px;
+    background:white;
+    padding:50px;
+    border:10px solid purple;
+    border-radius:25px;
+    box-shadow:0 0 50px rgba(0,0,0,0.4);
+    text-align:center;
+    position:relative;
+    animation:reveal 1.5s ease forwards;
+}
+
+.logo{
+    width:90px;
+    margin-bottom:10px;
+}
+
+h1{
+    font-size:42px;
+    color:purple;
+}
+
+.subtitle{
+    font-size:20px;
+}
+
+.name{
+    font-size:38px;
+    font-weight:bold;
+    color:rgb(240, 10, 10);
+    margin:20px 0;
+}
+
+.details{
+    font-size:22px;
+}
+
+.score{
+    font-size:20px;
+    margin-top:10px;
+}
+
+.certNumber{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:16px;
+}
+
+.date{
+    position:absolute;
+    bottom:40px;
+    left:60px;
+}
+
+.signature{
+    position:absolute;
+    bottom:40px;
+    right:60px;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 30px;
+    background:black;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:purple;
+}
+.next-btn{
+    display:inline-block;
+    padding:10px 20px;
+    background:black;
+    color:white;
+    text-decoration:none;
+    border-radius:6px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="certificate" id="certificate">
+
+    <div class="certNumber" id="certNumber"></div>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="logo">
+
+    <h1>Certificate of Achievement</h1>
+    <div class="subtitle">This certificate is proudly presented to</div>
+
+    <div class="name" id="studentName"></div>
+
+    <div class="details">
+        For successfully completing the Online course
+    </div>
+
+    <div class="score" id="scoreText"></div>
+
+    <div class="date" id="date"></div>
+    <div class="signature">Authorized Signature</div>
+
+</div>
+
+<button onclick="downloadPDF()">Download Certificate</button><br>
+<a href="index.html" class="next-btn">Next</a>
+<script>
+
+// Fetch stored data
+let name = localStorage.getItem("loggedInUser") || "Student";
+let score = localStorage.getItem("quizScore") || "0";
+
+
+// Certificate Number
+let certNo = "CERT-" + Math.floor(100000 + Math.random() * 900000);
+document.getElementById("certNumber").innerText = certNo;
+
+// Date
+let today = new Date();
+document.getElementById("date").innerText =
+    "Date: " + today.toLocaleDateString();
+
+// 🎉 CONFETTI CELEBRATION
+function launchConfetti(){
+    var duration = 3 * 1000;
+    var end = Date.now() + duration;
+
+    (function frame() {
+        confetti({
+            particleCount: 7,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 }
+        });
+        confetti({
+            particleCount: 7,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 }
+        });
+
+        if (Date.now() < end) {
+            requestAnimationFrame(frame);
+        }
+    }());
+}
+
+// Run confetti when page loads
+window.onload = function(){
+    launchConfetti();
+};
+
+// PDF Download
+function downloadPDF(){
+    let element = document.getElementById("certificate");
+    html2pdf().from(element).save(name + "_Certificate.pdf");
+}
+
+</script>
+
+</body>
+</html>

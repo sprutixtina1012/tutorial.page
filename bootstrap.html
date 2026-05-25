@@ -1,0 +1,488 @@
+<html>
+<head>
+  <title>Bootstrap Tutorial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+  rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style type="text/css">
+    body { font-family: 'Poppins', sans-serif; background:pink; animation: fadeIn 1s ease-in-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .sidebar {
+      width: 20%;
+      height: 100vh;
+      background: #222;
+      color: white;
+      padding: 20px;
+      position: fixed;
+      transition: background 0.3s ease;
+      animation: slideLeft 0.8s ease;
+    }
+
+    @keyframes slideLeft {
+      from { transform: translateX(-100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .sidebar a {
+      display: block;
+      margin-bottom: 12px;
+      padding: 12px;
+      background: #444;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .sidebar {
+  width: 20%;
+  height: 100vh;
+  background: #222;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  overflow-y: auto; /* Enables vertical scrolling */
+  scrollbar-width: thin; /* Firefox */
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 8px; /* Chrome, Edge, Safari */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+    .sidebar a:hover {
+      background: #666;
+      transform: translateX(5px);
+    }
+
+    .content-area {
+      margin-left: 22%;
+      padding: 30px;
+      background: white;
+      min-height: 100vh;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0,0,0,.2);
+      animation: fadeUp 0.8s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .top-options {
+      text-align: right;
+      margin-bottom: 30px;
+      margin-top: 80px;
+    }
+
+    .top-options a {
+      transition: transform 0.3s ease;
+    }
+    .top-options a:hover {
+      transform: scale(1.05);
+    }
+
+    pre {
+      background: #f6f6f6;
+      padding: 15px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      transition: box-shadow 0.3s ease;
+    }
+    pre:hover {
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      margin-top: 40px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+      animation: fadeIn 1s ease;
+    }
+
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .btn {
+      transition: transform 0.3s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    .next-btn {
+    background-color: black;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.next-btn:hover {
+    background-color: #333;
+    transform: translateY(-3px);
+}
+
+.next-btn:active {
+    transform: scale(0.95);
+}
+.border
+{
+color:beige;
+background-color:black;
+
+font-family:'Times New Roman', Times, serif;
+font-display: auto;
+font-size: larger;
+}
+header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+  </style>
+
+<header class="header">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+     <h3><div class="border" style="border-radius:17px 0px 17px">CMS</div></h3>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"></button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+</head>
+
+  <body>
+  <div class="sidebar">
+    <h4 class="fw-bold mb-4">Bootstrap Topics</h4>
+
+    <a href="#intro">Introduction</a>
+    <a href="#rwd">Responsive Web Design</a>
+    <a href="#grid">Grid System</a>
+    <a href="#containers">Containers</a>
+    <a href="#typography">Typography</a>
+    <a href="#spacing">Spacing Utilities</a>
+    <a href="#buttons">Buttons</a>
+    <a href="#cards">Cards</a>
+    <a href="#navbar">Navbar</a>
+    <a href="#forms">Forms</a>
+    <a href="#sizing">Sizing Utilities</a>
+    <a href="#position">Position Utilities</a>
+    <a href="#shadow">Shadows</a>
+    <a href="#icons">Bootstrap Icons</a>
+    <a href="#examples">Examples</a>
+
+  </div>
+
+  <div class="content-area">
+
+    <div class="top-options">
+      <a href="bootstrappdf.pdf" class="btn btn-outline-dark">📄 PDF</a>
+    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
+  🎥 Watch Video
+</button>
+
+    </div>
+
+   
+    <section id="intro">
+      <h2>Introduction to Bootstrap</h2>
+      <p>Bootstrap is a popular frontend framework used to build responsive and mobile-friendly websites quickly. It comes with built-in CSS, layout utilities, and components.</p>
+
+    </section>
+
+    <section id="rwd">
+      <h2>Responsive Web Design</h2>
+      <p>RWD ensures websites work on all screen sizes—mobiles, tablets, and desktops.</p>
+      <h4>Viewport Meta Tag</h4>
+      <pre>
+/*meta name="viewport" content="width=device-width, initial-scale=1"*/
+      </pre>
+
+      <h4>Media Query Example</h4>
+      <pre>
+@media (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+      </pre>
+    </section>
+
+   
+    <section id="containers">
+      <h2>Bootstrap Containers</h2>
+      <p>Containers provide padding and center content.</p>
+      <h4>Types of Containers:</h4>
+      <ul>
+        <li>container</li>
+        <li>container-fluid</li>
+        <li>container-sm / container-md / container-lg</li>
+      </ul>
+<ul><h2> .container</h2>
+
+<li>It is a fixed-width container.</li>
+<li>The width changes depending on screen size.</li>
+<li>On small screens it becomes almost full width.</li>
+<li>On larger screens it stays centered and does not stretch fully.</li>
+</li>Good for simple centered layouts.</li></ul>
+<ul><h2> .container-fluid</h2>
+<li>It is always 100% width.</li>
+<li>It stretches from the left edge to the right edge of the screen.</li>
+<li>Works the same on mobile, tablet, and desktop.</li>
+<li>Best for full-width sections like banners, headers, footers, background sections.</li></ul>
+<ul><h3> .container-sm, .container-md, .container-lg, .container-xl, .container-xxl</h3>
+<li>These are responsive containers.</li>
+<li>They stay full width until a certain screen size.</li>
+<li>After that screen size, they behave like a normal .container (fixed width).</li>
+<li>.container-sm</li>
+→ Full width on extra small screens, fixed width on small and above.
+<li>.container-md</li>
+→ Full width on small screens, fixed width on medium and above.
+<li>.container-lg</li>
+→ Full width on medium screens, fixed width on large and above.
+<li>.container-xl</li>
+→ Full width on large screens, fixed width on extra large and above.
+<li>.container-xxl</li>
+→ Full width on extra large screens, fixed width on extra extra large and above.</p>
+      <pre>
+
+<div class="container bg-success">This is a fixed-width container</div>
+<div class="container-fluid bg-warning">Full width container</div>
+      </pre>
+    </section>
+
+   
+    <section id="grid">
+      <h2>Bootstrap Grid System</h2>
+
+      <p>Bootstrap uses a 12-column responsive grid system.</p>
+
+      <h4>Basic Example:</h4>
+      <pre>
+<div class="container">
+  <div class="row">
+    <div class="col-6 bg-success text-white">Column 1 (50%)</div>
+    <div class="col-6 bg-dark text-white">Column 2 (50%)</div>
+  </div>
+</div>
+      </pre>
+
+      <h4>Responsive Columns</h4>
+      <pre>
+<div class="col-sm-12 col-md-6 col-lg-4 bg-danger text-white">Column</div>
+      </pre>
+    </section>
+
+    <section id="typography">
+      <h2>Bootstrap Typography</h2>
+
+      <p>Bootstrap provides classes for headings, text colors, alignment, and font utilities.</p>
+
+      <pre>
+<h1 class="display-4">Display Heading</h1>
+<p class="text-muted">Muted text</p>
+<p class="fw-bold">Bold text using Bootstrap</p>
+<p class="text-primary">This text is blue</p>
+      </pre>
+    </section>
+
+    <section id="spacing">
+      <h2>Spacing Utilities</h2>
+      <p>Used to apply margin (m) and padding (p).
+Margin and padding can be combined to control both the space outside and inside an element. Margin creates distance between elements, while padding adds space inside the element around its content. Using both together helps achieve clean spacing, better readability, and a well-structured layout.</p>
+      <ul>
+        <li>m-1 to m-5 → margin</li>
+        <li>p-1 to p-5 → padding</li>
+        <li>mt-3 → margin-top</li>
+        <li>px-4 → padding left and right</li>
+      </ul>
+
+      <pre>
+<div class="p-3 m-4 bg-light border">Box with spacing</div>
+      </pre>
+    </section>
+
+    <section id="buttons">
+      <h2>Bootstrap Buttons</h2>
+
+* Bootstrap buttons use the "btn" class along with color classes like `btn-primary`, `btn-success`, or `btn-danger` to create stylish buttons easily.
+* You can change the *size* of buttons using classes like `btn-lg` (large) and `btn-sm` (small).
+* Buttons can also be made *outlined*, *full-width*, or *disabled* using extra utility classes.
+
+      <pre>
+<button class="btn btn-primary">Primary</button><br>
+<button class="btn btn-success">Success</button><br>
+<button class="btn btn-danger">Danger</button><br>
+<button class="btn btn-outline-dark">Outline</button><br>
+      </pre>
+    </section>
+
+    <section id="cards">
+      <h2>Bootstrap Cards</h2>
+<ul>
+ <li> Cards are flexible content containers used to display text, images, buttons, and lists in a clean, boxed layout.</li>
+
+<li>They use the class card and can include parts like card-header, card-body, and card-footer.</li>
+
+<li>Cards are fully responsive and easy to style with borders, shadows, images, and background colors.</li>
+</ul>
+      <pre>
+<div class="card p-3 shadow">
+  <h5 class="card-title">Card Title</h5>
+  <p>Bootstrap card content</p>
+  <button class="btn btn-primary">Click</button>
+</div>
+      </pre>
+    </section>
+
+    <section id="navbar">
+      <h2>Bootstrap Navbar</h2>
+<ul>
+<li>A navbar is a responsive navigation bar created using the navbar class for menus, links, and branding.</li>
+
+<li>It automatically collapses into a toggle (bread crumbs) menu on small screens using navbar-expand-*.</li>
+
+<li>Navbars support brand logos, dropdowns, search bars, and can be styled with light/dark themes like navbar-light and navbar-dark.</li>
+</ul>
+      <pre>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">Brand</a>
+  </div>
+</nav>
+      </pre>
+    </section>
+    <section id="sizing">
+      <h2>Sizing Utilities</h2>
+
+      <pre>
+<div class="w-25 bg-info p-2">Width 25%</div>
+<div class="w-50 bg-warning p-2">Width 50%</div>
+<div class="w-100 bg-success p-2">Width 100%</div>
+      </pre>
+    </section>
+
+    <section id="position">
+      <h2>Position Utilities</h2>
+<p>Bootstrap position utilities help you easily control how elements are placed on a page using simple classes like position-static, position-relative, position-absolute, position-fixed, and position-sticky. These classes allow you to move elements using top, bottom, start, and end values without writing custom CSS. They are commonly used for sticky headers, fixed buttons, overlays, and precise element placement.</p>
+      <pre>
+<div class="position-relative">
+  <div class="position-absolute top-0 end-0 p-2 bg-dark text-white">
+    Absolute Box
+  </div>
+</div>
+      </pre>
+    </section>
+
+    <section id="shadow">
+      <h2>Shadow Utilities</h2>
+<p>Bootstrap shadow classes are used to quickly add drop shadows to elements without writing custom CSS. They provide different levels like shadow-sm (small), shadow (regular), and shadow-lg (large) to give depth and make components stand out. Shadows help improve visual hierarchy and make cards, buttons, or boxes look more modern and elevated.</p>
+      <pre>
+<div class="shadow-sm p-3 mb-3">Small Shadow</div>
+<div class="shadow p-3 mb-3">Normal Shadow</div>
+<div class="shadow-lg p-3 mb-3">Large Shadow</div>
+      </pre>
+    </section>
+
+    <section id="icons">
+      <h2>Bootstrap Icons</h2>
+<p>Bootstrap Icons are a free collection of customizable SVG icons that you can easily use in any webpage. They work with simple classes like bi bi-heart and can be resized or colored using CSS. They are lightweight, scalable, and perfect for adding clean visual symbols to your UI.</p>
+      <pre>
+<h1><i class="bi bi-heart"></i>
+<i class="bi bi-alarm"></i>
+<i class="bi bi-camera"></i></h1>
+      </pre>
+    </section>
+
+    <section id="examples">
+      <h2>Bootstrap Examples</h2>
+
+      <h4>Responsive Card Layout</h4>
+      <pre>
+<div class="container">
+  <div class="row g-3">
+    <div class="col-md-4">
+      <div class="card p-3 shadow">Card 1</div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 shadow">Card 2</div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3 shadow">Card 3</div>
+    </div>
+  </div>
+</div>
+      </pre>
+
+      <h4>Simple Header</h4>
+      <pre>
+&lt;header class="bg-light p-3 shadow-sm"&gt;
+  &lt;h3 class="text-center"&gt;Bootstrap Responsive Header&lt;/h3&gt;
+&lt;/header&gt;
+      </pre>
+  <a href="bootstrapprob.html" class="btn btn-primary">Take a Quiz</a> <a href="endofthecourse.html" class="next-btn">NEXT</a> </section>
+</section>
+  </div>
+  
+<!-- Video Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title"> BOOTSTRAP Tutorial Video</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="ratio ratio-16x9">
+       <iframe 
+  src="bootstrap.mp4"
+  allowfullscreen>
+</iframe>
+
+           
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
